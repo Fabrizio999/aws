@@ -1,0 +1,75 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>Demo Mobile AmadeusWS</ion-title>
+  </ion-navbar>
+</ion-header>
+ 
+
+<ion-content padding>
+ <h1>RAIL Stations using Amadeus API</h1>
+  <br>
+  <a href="https://sandbox.amadeus.com/travel-innovation-sandbox/apis/get/rail-stations/autocomplete">Amadeus RAIL WBS (JSON/REST API)</a>
+  <br><br>
+  <hr />
+
+  	
+		<ion-buttons>
+			<button ion-button block (click)="fromNice()">Nice RAIL Stations</button>
+			<button ion-button block (click)="fromParis()">Paris RAIL Stations</button>
+			<button ion-button block (click)="fromMilano()">Milano RAIL Stations</button>
+			<button ion-button block (click)="infoNice()">INFO Nice Stations</button>
+		</ion-buttons>
+		<div>
+			<p align="center">Amadeus API Mobile JSON/REST</p>
+			<p align="center">List of rail stations in: <strong>{{tapCounter}}</strong></p>
+		</div>
+	
+	<!--  DA USARE PER RAIL  https://sandbox.amadeus.com/travel-innovation-sandbox/apis/get/rail-stations/autocomplete    -->
+	<ion-list >
+		<ion-item-sliding *ngFor="let post of posts; let i = index">
+			<ion-item>
+				<span>{{i+1}}. </span>				
+				<h2>Station Name: <strong>{{post.label}}</strong></h2>				
+				<h2>Station Code: <strong>{{post.value}}</strong></h2>				
+			</ion-item>
+		</ion-item-sliding>
+	</ion-list>
+	
+	<!--
+	<ion-list >
+		<ion-item-sliding *ngFor="let post of infoPosts; let i = index">
+			<ion-item>
+				<span>{{i+1}}. </span>				
+				<h2>Station Name: <strong>{{post.name}}</strong></h2>				
+				<h2>Station Id: <strong>{{post.id}}</strong></h2>				
+			</ion-item>
+		</ion-item-sliding>
+	</ion-list>
+	-->
+	
+	<!--  DA USARE PER I VOLI -->
+	<!-- <ion-list >
+		<ion-item-sliding *ngFor="let post of posts; let i = index">
+			<ion-item>
+				<span>{{i+1}}. </span>
+				<h2>Destination: <strong>{{post.destination}}</strong></h2>
+				<h2>Flights: <strong>{{post.flights}}</strong></h2>
+				<h2>Travelers: <strong>{{post.travelers}}</strong></h2>
+			</ion-item>
+		</ion-item-sliding>
+	</ion-list> -->
+<br>
+NOTE <br>
+Given the start of any word in a rail station's official name, as a term, this API provides the full name and rail station ID of a rail station for use in searches. 
+The response provides an array of up to 20 possible matches, sorted by passenger traffic, in a JQuery Autocomplete compatible format.
+The value returned is the UIC station code. The label returned is always in UTF-8 format, with the station's official name (which is often in the native language). 
+Agglomeration station codes may also be returned.
+Only French and Italian rail stations are supported by the Rail Station Autocomplete API.
+
+	
+	<br>
+	<p align="right">fmonticelli (08/2017 made with Ionic2) last update 30/04/2018</p>
+	
+	
+</ion-content>
+
